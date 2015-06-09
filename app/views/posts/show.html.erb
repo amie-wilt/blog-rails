@@ -1,47 +1,62 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
-
-<p>
-  <strong>Date:</strong>
-  <%= @post.date %>
-</p>
-
-<p>
-  <strong>Author:</strong>
-  <%= @post.author %>
-</p>
-
-<p>
-  <strong>Body:</strong>
-  <%= @post.body %>
-</p>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Posts', posts_path(@post) %>
-
-<%= form_for [@post, @post.comments.build] do |f| %>
-    <div class="field">
-      <%= f.label :title %><br>
-      <%= f.text_field :title %>
-    </div>
-    <div class="field">
-      <%= f.label :author_email %>
-      <%= f.text_field :author_email %>
-    </div>
-    <div class="field">
-      <%= f.label :body %><br>
-      <%= f.text_area :body %>
-    </div>
-    <p><%= f.submit "Add comment" %></p>
-<% end %>
+<div class="container">
+  <p id="notice"><%= notice %></p>
 
 
+  <h1> <%= @post.title %></h1>
 
-<h2>Comments</h2>
-<div id="comments">
-  <%= @comments %>
+ <span>
+    <%= @post.author %>  |
+  </span>
+
+  <span>
+    <%= @post.date %>
+  </span>
+
+  <p>
+    <%= @post.body %>
+  </p>
+
+  <%= link_to 'Edit', edit_post_path(@post) %> |
+  <%= link_to 'Posts', posts_path(@post) %>
+</div>
+
+<div class="container">
+  <h2>Leave a Comment</h2>
+
+  <%= form_for [@post, @comment] do |f| %>
+      <% if @comment.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+            <ul>
+              <% @comment.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+      <% end %>
+
+      <div class="field">
+        <%= f.label :author_name %>
+        <%= f.text_field :author_name %>
+      </div>
+      <div class="field">
+        <%= f.label :author_email %>
+        <%= f.text_field :author_email %>
+      </div>
+      <div class="field">
+        <%= f.label :body %><br>
+        <%= f.text_area :body %>
+      </div>
+      <%= f.submit "Add comment" %>
+  <% end %>
+</div>
+
+
+<div class="container">
+  <h2>Comments</h2>
+
+  <div id="comments">
+    <%= @comments %>
+  </div>
 </div>
