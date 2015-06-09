@@ -2,7 +2,7 @@
   <p id="notice"><%= notice %></p>
 
 
-  <h1> <%= @post.title %></h1>
+  <h1><%= @post.title %></h1>
 
  <span>
     <%= @post.author %>  |
@@ -56,7 +56,9 @@
 <div class="container">
   <h2>Comments</h2>
 
-  <div id="comments">
-    <%= @comments %>
-  </div>
+  <% @post.comments.each do |comment| %>
+      <%= comment.author_name %>
+      <%= comment.author_email %>
+      <%= comment.body %>
+  <% end %>
 </div>
