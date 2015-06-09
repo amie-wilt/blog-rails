@@ -5,8 +5,9 @@
 
 
 body {
-  color: #006699;
+  color: #555;
   font-family: sans-serif;
+  background: url(http://api.thumbr.it/whitenoise-361x370.png?background=bbeb94ff&noise=626262&density=38&opacity=27);
 }
 
 .container {
@@ -15,6 +16,7 @@ body {
   padding: 50px;
   border-radius: 10px;
   box-shadow: 0 0 30px #888;
+  background-color: #F8F8F8;
 }
 
 span {
@@ -24,7 +26,6 @@ span {
 
 p {
   line-height: 1.5;
-  margin: 35px 0;
 }
 
 h2 {
@@ -63,4 +64,12 @@ form {
     width: 50%;
     font-size: 3em;
   }
+}
+
+.post-index-posts-container {
+  margin: 100px 0;
+}
+
+.post-index-post-title {
+  text-align: left;
 }
