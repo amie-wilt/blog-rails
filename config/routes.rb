@@ -1,14 +1,15 @@
 Rails.application.routes.draw do
-  get 'home/index'
 
-  # resources :comments
-  # resources :posts
+  resources :comments
+  resources :posts
 
-  get 'comments/index'
+ # get 'posts/edit'
+ #
+ #  get 'comments/index'
+ #
+ #  get 'posts/index'
 
-  get 'posts/index'
-
-  root 'posts#index'
+  root 'home#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
