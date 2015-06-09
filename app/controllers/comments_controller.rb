@@ -15,16 +15,9 @@ class CommentsController < ApplicationController
   end
 
   def create
-
-    @comment = Comment.new(comment_params)
-
-    respond_to do |format|
-      if @comment.save
-        format.html { redirect_to root_path, notice: 'Your comment was successfully created.' }
-      else
-        format.html { render :new }
-      end
-    end
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.create!(params[:comment])
+    redirect_to @post
   end
 
   def destroy
