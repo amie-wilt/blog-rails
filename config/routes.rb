@@ -4,10 +4,10 @@ Rails.application.routes.draw do
   #
   # get 'sessions/destroy'
 
-  resources :session, :only => [:create, :destroy]
   resources :posts do
     resources :comments, :only => [:create, :edit, :destroy]
   end
+  resource :session, :only => [:create, :destroy]
 
  # get 'posts/edit'
  #
