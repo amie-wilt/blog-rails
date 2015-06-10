@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
     email, password = params.values_at(:email, :password)
     user = User.find_by(email: email)
 
-    if user
+    if user && user.authenticate(password: password)
       session[:user_id] = user.id
       flash[:notice] = "#{user.name} logged in."
     else
