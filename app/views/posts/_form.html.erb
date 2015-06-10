@@ -12,19 +12,16 @@
     <% end %>
 
     <div class="field">
-      <%= f.label :title %><br>
-      <%= f.text_field :title %>
-    </div>
-    <div class="field">
       <%= f.label :date %><br>
       <%= f.date_select :date, start_year: 1900 %>
     </div>
     <div class="field">
-      <%= f.label :author %>
-      <%= f.text_field :author %>
+      <%= f.label :title, "Post Title" %><br>
+      <%= f.text_field :title %>
     </div>
+
     <div class="field">
-      <%= f.label :body %><br>
+      <%= f.label :body, "Post Content" %><br>
       <%= f.text_area :body %>
     </div>
     <div class="actions">

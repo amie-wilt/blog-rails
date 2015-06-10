@@ -5,7 +5,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @comment = @post.comments.build
+    # @comment = @post.comments.build => commented out for user authentication
   end
 
   def new

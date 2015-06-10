@@ -22,7 +22,7 @@ class CommentsController < ApplicationController
       if @comment.save
         format.html { redirect_to @post, notice: 'Your comment was successfully created.' }
       else
-        format.html { render 'posts/show' }
+        format.html { render 'home/show' }
       end
     end
   end
