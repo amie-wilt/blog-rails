@@ -1,9 +1,9 @@
 class SessionsController < ApplicationController
   def create
     email, password = params.values_at(:email, :password)
-    user = User.find_by(email: email)
+    user = User.find_by(email: email).try(:authenticate, password)
 
-    if user && user.authenticate(password: password)
+    if user
       session[:user_id] = user.id
       flash[:notice] = "#{user.name} logged in."
     else

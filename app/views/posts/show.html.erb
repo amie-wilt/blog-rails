@@ -5,7 +5,7 @@
   <h1><%= @post.title %></h1>
 
  <span>
-    <%= @post.author %>  |
+    <%= @post.author %>
   </span>
 
   <span>
@@ -16,7 +16,9 @@
     <%= @post.body %>
   </p>
 
-  <%= link_to 'Edit', edit_post_path(@post) %> |
+  <% if current_user %>
+      <%= link_to 'Edit', edit_post_path(@post) %> |
+  <% end %>
   <%= link_to 'Posts', posts_path(@post) %>
 </div>
 
@@ -57,8 +59,10 @@
   <h2>Comments</h2>
 
   <% @post.comments.each do |comment| %>
-      <%= comment.author_name %>
-      <%= comment.author_email %>
-      <%= comment.body %>
+      <div class="comment-container">
+        <span><%= comment.author_name %></span>
+        <span><%= comment.author_email %></span>
+        <p><%= comment.body %></p>
+      </div>
   <% end %>
 </div>
