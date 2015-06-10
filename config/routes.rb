@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
 
-  get 'sessions/create'
+  # get 'sessions/create'
+  #
+  # get 'sessions/destroy'
 
-  get 'sessions/destroy'
-
+  resources :session, :only => [:create, :destroy]
   resources :posts do
     resources :comments, :only => [:create, :edit, :destroy]
   end
