@@ -6,8 +6,8 @@
         <h2 class="post-index-post-title"><%= post.title %></h2>
         <span><%= post.author %></span>
         <span><%= post.date %></span>
-
         <p><%= post.body %></p>
+        <p><%= raw post.all_tags %></p>
 
         <%= link_to 'Show', post %>
         <% if current_user && post.user == current_user %>

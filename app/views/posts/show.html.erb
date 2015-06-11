@@ -16,6 +16,10 @@
     <%= @post.body %>
   </p>
 
+  <p>
+    <%= @post.all_tags %>
+  </p>
+
   <% if current_user %>
       <%= link_to 'Edit', edit_post_path(@post) %> |
   <% end %>

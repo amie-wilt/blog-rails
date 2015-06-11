@@ -4,9 +4,9 @@ class PostsController < ApplicationController
   before_action :require_authenticated_user, :except => [:index, :show]
 
   def index
-    if params[:mine]
-      @posts = current_user.try(:posts)
-    end
+    # if params[:mine]
+    #   @posts = current_user.try(:posts)  => used for toggling between user posts and general posts
+    # end
     @posts = Post.all
   end
 
@@ -53,6 +53,6 @@ class PostsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def post_params
-    params.require(:post).permit(:user_id, :title, :date, :author, :body)
+    params.require(:post).permit(:user_id, :title, :date, :author, :body, :all_tags)
   end
 end

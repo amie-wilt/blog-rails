@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :posts do
     resources :comments, :only => [:create, :edit, :destroy]
   end
+  get 'tags/:tag', to: 'posts#index', as: "tag"
   resource :session, :only => [:create, :destroy]
 
  # get 'posts/edit'
