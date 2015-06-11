@@ -20,10 +20,13 @@
     <%= @post.all_tags %>
   </p>
 
-  <% if current_user %>
-      <%= link_to 'Edit', edit_post_path(@post) %> |
-  <% end %>
-  <%= link_to 'Posts', posts_path(@post) %>
+  <div>
+    <% if current_user && @post.user == current_user %>
+        <%= link_to 'Edit', edit_post_path(@post) %> |
+        <%= link_to 'Destroy', @post, method: :delete, data: {confirm: 'Are you sure?'} %>
+    <% end %>
+  </div>
+  <%= link_to 'Back to Posts', posts_path(@post) %>
 </div>
 
 <div class="container">
@@ -66,6 +69,7 @@
       <div class="comment-container">
         <span><%= comment.author_name %></span>
         <span><%= comment.author_email %></span>
+
         <p><%= comment.body %></p>
       </div>
   <% end %>
