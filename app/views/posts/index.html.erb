@@ -7,7 +7,7 @@
         <span><%= post.author %></span>
         <span><%= post.date %></span>
         <p><%= post.body %></p>
-        <p><%= raw post.all_tags %></p>
+        <p><%= raw tag_links(post.all_tags) %></p>
 
         <%= link_to 'Show', post %>
         <% if current_user && post.user == current_user %>
