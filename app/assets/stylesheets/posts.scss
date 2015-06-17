@@ -10,7 +10,8 @@ body {
   background: url(http://api.thumbr.it/whitenoise-361x370.png?background=bbeb94ff&noise=626262&density=38&opacity=27);
 }
 
-.container {
+.container,
+.comment-container {
   max-width: 960px;
   margin: 50px auto;
   padding: 50px;

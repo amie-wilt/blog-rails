@@ -14,3 +14,34 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+
+//
+//$(function() {
+//    $('[data-contact-form]')
+//        .on('submit', function (e) {
+//            e.preventDefault();
+//
+//            if ($(this).parsley().isValid() ) {
+//                var data = {
+//                    'first-name': $('#contact-form-first-name').val(),
+//                    'last-name': $('#contact-form-last-name').val(),
+//                    'email': $('#contact-form-email').val(),
+//                    'questions-comments': $('#questions-comments').val(),
+//                    'to': recipients.toString()
+//                };
+//
+//                $.post('contact-form.php', data, function () {
+//                    window.location.href = 'contact-thanks.html';
+//                });
+//            }
+//        })
+//        .parsley({
+//            errorsContainer: function (field) {
+//                var $el = field.$element;
+//                return $el.closest('.field');
+//            }
+//        });
+//});
+

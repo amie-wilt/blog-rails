@@ -26,13 +26,13 @@
         <%= link_to 'Destroy', @post, method: :delete, data: {confirm: 'Are you sure?'} %>
     <% end %>
   </div>
-  <%= link_to 'Back to Posts', posts_path(@post) %>
+  <%= link_to 'Back to Posts', posts_path %>
 </div>
 
 <div class="container">
   <h2>Leave a Comment</h2>
 
-  <%= form_for [@post, @comment] do |f| %>
+  <%= form_for [@post, @comment], :remote => true do |f| %>
       <% if @comment.errors.any? %>
           <div id="error_explanation">
             <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -62,15 +62,8 @@
 </div>
 
 
-<div class="container">
+<div class="comment-container">
   <h2>Comments</h2>
 
-  <% @post.comments.each do |comment| %>
-      <div class="comment-container">
-        <span><%= comment.author_name %></span>
-        <span><%= comment.author_email %></span>
-
-        <p><%= comment.body %></p>
-      </div>
-  <% end %>
+  <%= render @post.comments %>
 </div>
