@@ -20,6 +20,10 @@
     <%= @post.all_tags %>
   </p>
 
+  <p>
+    <%= image_tag @post.image_url.to_s %>
+  </p>
+
   <div>
     <% if current_user && @post.user == current_user %>
         <%= link_to 'Edit', edit_post_path(@post) %> |
