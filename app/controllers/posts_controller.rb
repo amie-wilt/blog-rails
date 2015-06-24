@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:edit, :update, :destroy]
 
-  before_action :require_authenticated_user, :except => [:index, :show]
+  # before_action :require_authenticated_user, :except => [:index, :show]
 
   def index
     # if params[:mine]
@@ -17,14 +17,14 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = current_user.posts.new
+    @post = Post.new
   end
 
   def edit
   end
 
   def create
-    @post = current_user.posts.new(post_params)
+    @post = Post.new(post_params)
 
     if @post.save
       redirect_to @post, notice: 'Post was successfully created.'
