@@ -9,6 +9,8 @@
         <p><%= post.body %></p>
         <p><%= raw tag_links(post.all_tags) %></p>
 
+        <%= image_tag post.image_url.to_s %>
+
         <%= link_to 'Show', post %>
         <% if current_user && post.user == current_user %>
             |  <%= link_to 'Edit', edit_post_path(post) %> |
