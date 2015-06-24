@@ -1,21 +1,16 @@
 Rails.application.routes.draw do
 
-  # get 'sessions/create'
-  #
-  # get 'sessions/destroy'
-
   resources :posts do
     resources :comments, :only => [:create, :edit, :destroy]
   end
-  get 'tags/:tag', to: 'posts#index', as: "tag"
-  resource :session, :only => [:create, :destroy]
 
- # get 'posts/edit'
- #
- #  get 'comments/index'
- #
- #  get 'posts/index'
+  resources :sessions, :only => [:create, :destroy]
 
   root 'home#index'
+
+  get "/auth/github/callback" => "sessions#create"
+  get "/signout" => "sessions#destroy", :as => :signout
+
+  get 'tags/:tag', to: 'posts#index', as: "tag"
 
 end

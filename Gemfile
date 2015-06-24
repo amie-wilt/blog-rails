@@ -10,9 +10,10 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 
+gem 'puma'
 
-# Use ActiveModel has_secure_password
-gem 'bcrypt', '~> 3.1.7'
+gem 'omniauth'
+gem 'omniauth-github'
 
 # Use Unicorn as the app server
 gem 'unicorn'

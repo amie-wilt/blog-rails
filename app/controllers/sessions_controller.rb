@@ -1,21 +1,24 @@
 class SessionsController < ApplicationController
+
+  def new
+    redirect_to '/auth/github'
+  end
+
   def create
-    email, password = params.values_at(:email, :password)
-    user = User.find_by(email: email).try(:authenticate, password)
-
-    if user
-      session[:user_id] = user.id
-      flash[:notice] = "#{user.name} logged in."
-    else
-      flash[:notice] = "Login failed."
-    end
-
-    redirect_to root_path
+    auth = request.env["omniauth.auth"]
+    user = User.where(:provider => auth["provider"],
+                      :uid => auth["uid"].to_s).first ||= User.create_with_omniauth(auth)
+    reset_session
+    session[:user_id] = user.id
+    redirect_to root_url, :notice => 'Signed in!'
   end
 
   def destroy
-    session[:user_id] = nil
-    flash[:notice] = "Logged out."
-    redirect_to root_path
+    reset_session
+    redirect_to root_url, :notice => 'Signed out!'
+  end
+
+  def failure
+    redirect_to root_url, :alert => "Authentication error: #{params[:message].humanize}"
   end
 end
