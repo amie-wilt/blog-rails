@@ -9,7 +9,7 @@
         <p><%= post.body %></p>
         <p><%= raw tag_links(post.all_tags) %></p>
 
-        <%= image_tag post.image_url.to_s %>
+        <%= image_tag post.image_url.to_s, :size => '32x32' %>
 
         <%= link_to 'Show', post %>
         <% if current_user && post.user == current_user %>

@@ -23,7 +23,7 @@ gem 'fog'
 # photo resizing
 gem 'mini_magick'
 # file upload solution
-gem 'carrierwave'
+gem 'carrierwave-aws'
 
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
