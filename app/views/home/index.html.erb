@@ -1,12 +1,6 @@
-<div>
-  <% if current_user %>
-    <%= link_to 'New Post', new_post_path %>
-  <% end %>
-</div>
-
 <div class="container">
 
-  <h1>Welcome to my BLOG!</h1>
+  <h1>Saber's Blog!</h1>
 
   <% @posts.each do |post| %>
       <h2><%= post.title %></h2>
@@ -20,6 +14,4 @@
           <%= link_to 'Destroy', post, method: :delete, data: {confirm: 'Are you sure?'} %>
       <% end %>
   <% end %>
-
-  <p class="posts-link">View more <%= link_to 'Posts', posts_path %>!</p>
 </div>
