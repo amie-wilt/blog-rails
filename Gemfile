@@ -16,6 +16,7 @@ gem 'omniauth'
 gem 'omniauth-github'
 
 gem 'newrelic_rpm'
+gem 'honeybadger', '~> 2.0'
 
 # Use Unicorn as the app server
 gem 'unicorn'
