@@ -15,6 +15,8 @@ gem 'puma'
 gem 'omniauth'
 gem 'omniauth-github'
 
+gem 'newrelic_rpm'
+
 # Use Unicorn as the app server
 gem 'unicorn'
 
